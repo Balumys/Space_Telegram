@@ -24,7 +24,7 @@ def fetch_nasa_apod_images(img_dir, count, token):
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("NASA_TOKEN")
-    img_dir = os.getcwd() + "/Apod_images"
+    img_dir = os.getcwd() + "/Images"
     parser = argparse.ArgumentParser(
         description="Download image of the day from https://apod.nasa.gov/apod/astropix.html")
     parser.add_argument("--count", default=1, help="You can specify how many images you want (dafault = 1)")

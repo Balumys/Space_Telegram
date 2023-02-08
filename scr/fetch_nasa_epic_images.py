@@ -24,7 +24,7 @@ def fetch_nasa_epic_images(img_dir, token):
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("NASA_TOKEN")
-    img_dir = os.getcwd() + "/Epic_images"
+    img_dir = os.getcwd() + "/Images"
     parser = argparse.ArgumentParser(
         description="Downloads images of the Earth from https://api.nasa.gov/EPIC/archive/")
     fetch_nasa_epic_images(img_dir, token)
