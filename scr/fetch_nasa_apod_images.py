@@ -21,12 +21,17 @@ def fetch_nasa_apod_images(img_dir, count, token):
                      f"{img_dir}/nasa_apod_{dictionary_number}{get_img_extension(img_url)}")
 
 
-if __name__ == "__main__":
-    load_dotenv()
-    token = os.getenv("NASA_TOKEN")
-    img_dir = os.getcwd() + "/Images"
+def get_arguments():
     parser = argparse.ArgumentParser(
         description="Download image of the day from https://apod.nasa.gov/apod/astropix.html")
     parser.add_argument("--count", default=1, help="You can specify how many images you want (dafault = 1)")
     args = parser.parse_args()
+    return args
+
+
+if __name__ == "__main__":
+    load_dotenv()
+    token = os.getenv("NASA_TOKEN")
+    img_dir = os.getcwd() + "/Images"
+    args = get_arguments()
     fetch_nasa_apod_images(img_dir, args.count, token)

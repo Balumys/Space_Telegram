@@ -16,11 +16,16 @@ def fetch_spacex_last_launch(img_dir, launch_id):
         save_img(url, f"{img_dir}/spacex_{url_number}{get_img_extension(url)}")
 
 
-if __name__ == "__main__":
-    img_dir = os.getcwd() + "/Images"
+def get_arguments():
     parser = argparse.ArgumentParser(
         description="Downloads images from the specified launch, if launch was't specified, then downloads from the last launch ")
     parser.add_argument("launch_id", nargs="?", type=str, default="latest",
                         help="Specify the spaceX launch id (dafault = latest)")
     args = parser.parse_args()
+    return args
+
+
+if __name__ == "__main__":
+    img_dir = os.getcwd() + "/Images"
+    args = get_arguments()
     fetch_spacex_last_launch(img_dir, args.launch_id)
