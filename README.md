@@ -38,19 +38,22 @@ By default `--count` set to 1.
 
 Example:
 
-![](../../../Desktop/Screenshot 2023-02-09 at 17.07.41.png)
+![Screenshot 2023-02-09 at 17 07 41](https://user-images.githubusercontent.com/123511478/217842967-69f3a758-4dca-4710-8cf7-de508328a698.png)
+
 #### fetch_nasa_epic_images.py
 Console script allows you fetching images from [NASA EPIC](https://api.nasa.gov/EPIC/api/natural/images). No arguments in this script.
 
 Example:
 
-![](../../../Desktop/Screenshot 2023-02-09 at 17.09.59.png)
+![Screenshot 2023-02-09 at 17 09 59](https://user-images.githubusercontent.com/123511478/217843032-2804480a-b5e8-4c4d-90f4-3aa044f7f286.png)
+
 #### fetch_spacex_images.py
 Console script allows you fetching images from [SpaceX]( https://api.spacexdata.com/) with position argument `launch_id`.
 If `launch_id` wasn't specified, script fetching images from **latest** launch.
 
 Example:
-![](../../../Desktop/Screenshot 2023-02-09 at 17.10.36.png)
+
+![Screenshot 2023-02-09 at 17 10 36](https://user-images.githubusercontent.com/123511478/217843106-de44bf73-ecb0-4c0f-9ec5-f262d7ced695.png)
 
 
 ### Scripts to publish images in to telegram channel
@@ -59,7 +62,8 @@ Publishing user defined image to channel, if image wasn't specified than take a 
 
 Example:
 
-![](../../../Desktop/Screenshot 2023-02-09 at 17.23.09.png)
+![Screenshot 2023-02-09 at 17 23 09](https://user-images.githubusercontent.com/123511478/217843150-b822214a-7f1c-4fde-b846-7a07f7cbccd5.png)
+
 
 
 #### publish_all_images.py
@@ -68,7 +72,8 @@ If all images was published than script randomly shuffle them and start publishi
 
 Example:
 
-![](../../../Desktop/Screenshot 2023-02-09 at 17.23.37.png)
+![Screenshot 2023-02-09 at 17 23 37](https://user-images.githubusercontent.com/123511478/217843186-821498ee-1d8d-49e3-9c0c-66b860fa4aeb.png)
+
 
 ### Additional files
 #### save_images_to_dir.py
