@@ -27,4 +27,5 @@ if __name__ == "__main__":
     img_dir = os.getcwd() + "/Images"
     parser = argparse.ArgumentParser(
         description="Downloads images of the Earth from https://api.nasa.gov/EPIC/archive/")
+    args = parser.parse_args()
     fetch_nasa_epic_images(img_dir, token)

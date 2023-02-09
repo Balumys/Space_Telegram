@@ -7,7 +7,7 @@ from telegram_bot import publish_user_image_to_channel
 
 
 def get_arguments():
-    parser = argparse.ArgumentParser(description="Publishing all images from folder to telegram channel")
+    parser = argparse.ArgumentParser(description="Publishing all images from folder to telegram channel (For exit press ctr+C)")
     parser.add_argument("delay", nargs="?", type=int, default=3600,
                         help="Set time interval for images to be published (default = 3600 sec(4 hours))")
     args = parser.parse_args()
