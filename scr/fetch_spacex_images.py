@@ -3,11 +3,10 @@ import requests
 import argparse
 from save_images_to_dir import save_img
 from save_images_to_dir import get_img_extension
-from save_images_to_dir import create_img_dir
 
 
 def fetch_spacex_last_launch(img_dir, launch_id):
-    create_img_dir(img_dir)
+    os.makedirs(img_dir, exist_ok=True)
     url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(url)
     response.raise_for_status()

@@ -2,13 +2,12 @@ import argparse
 import os
 import requests
 from dotenv import load_dotenv
-from save_images_to_dir import create_img_dir
 from save_images_to_dir import save_img
 from save_images_to_dir import get_img_extension
 
 
 def fetch_nasa_apod_images(img_dir, count, token):
-    create_img_dir(img_dir)
+    os.makedirs(img_dir, exist_ok=True)
     url = "https://api.nasa.gov/planetary/apod"
     payload = {"api_key": token,
                "count": count}

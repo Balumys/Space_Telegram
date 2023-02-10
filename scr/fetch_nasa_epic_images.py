@@ -3,12 +3,11 @@ import os
 import requests
 from dotenv import load_dotenv
 from datetime import datetime
-from save_images_to_dir import create_img_dir
 from save_images_to_dir import save_img
 
 
 def fetch_nasa_epic_images(img_dir, token):
-    create_img_dir(img_dir)
+    os.makedirs(img_dir, exist_ok=True)
     url = f"https://api.nasa.gov/EPIC/api/natural/images"
     payload = {"api_key": token}
     response = requests.get(url, params=payload)

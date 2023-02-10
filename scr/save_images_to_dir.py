@@ -3,10 +3,6 @@ import os
 from urllib import parse
 
 
-def create_img_dir(img_dir):
-    os.makedirs(img_dir, exist_ok=True)
-
-
 def get_img_extension(url):
     img_extension = os.path.splitext(parse.urlsplit(url, allow_fragments=True)[2])[-1]
     return img_extension
