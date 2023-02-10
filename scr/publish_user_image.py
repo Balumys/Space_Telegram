@@ -6,9 +6,9 @@ from telegram_bot import publish_user_image_to_channel
 
 
 def get_arguments():
-    img_dir = os.getcwd() + "/Images"
+    path_to_img = os.getcwd() + "/Images"
     parser = argparse.ArgumentParser(description="Publishing user defined image to telegram channel")
-    parser.add_argument("img_path", nargs="?", default=f"{img_dir}/{random.choice(os.listdir(img_dir))}",
+    parser.add_argument("img_path", nargs="?", default=f"{path_to_img}/{random.choice(os.listdir(path_to_img))}",
                         help="Path to image to be published (default = random image from Images folder)")
     args = parser.parse_args()
     return args

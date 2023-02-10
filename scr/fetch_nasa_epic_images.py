@@ -6,8 +6,8 @@ from datetime import datetime
 from save_images_to_dir import save_img
 
 
-def fetch_nasa_epic_images(img_dir, token):
-    os.makedirs(img_dir, exist_ok=True)
+def fetch_nasa_epic_images(path_to_img, token):
+    os.makedirs(path_to_img, exist_ok=True)
     url = f"https://api.nasa.gov/EPIC/api/natural/images"
     payload = {"api_key": token}
     response = requests.get(url, params=payload)
@@ -17,14 +17,14 @@ def fetch_nasa_epic_images(img_dir, token):
         date = datetime.strptime(dictionary["date"], "%Y-%m-%d %H:%M:%S").date()
         formatted_date = date.strftime("%Y/%m/%d")
         img_url = f"https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{img_name}?api_key={token}"
-        save_img(img_url, f"{img_dir}/epic_{dictionary_number}.png")
+        save_img(img_url, f"{path_to_img}/epic_{dictionary_number}.png")
 
 
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("NASA_TOKEN")
-    img_dir = os.getcwd() + "/Images"
+    path_to_img = os.getcwd() + "/Images"
     parser = argparse.ArgumentParser(
         description="Downloads images of the Earth from https://api.nasa.gov/EPIC/archive/")
     args = parser.parse_args()
-    fetch_nasa_epic_images(img_dir, token)
+    fetch_nasa_epic_images(path_to_img, token)

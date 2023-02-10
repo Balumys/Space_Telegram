@@ -6,8 +6,8 @@ from save_images_to_dir import save_img
 from save_images_to_dir import get_img_extension
 
 
-def fetch_nasa_apod_images(img_dir, count, token):
-    os.makedirs(img_dir, exist_ok=True)
+def fetch_nasa_apod_images(path_to_img, count, token):
+    os.makedirs(path_to_img, exist_ok=True)
     url = "https://api.nasa.gov/planetary/apod"
     payload = {"api_key": token,
                "count": count}
@@ -17,7 +17,7 @@ def fetch_nasa_apod_images(img_dir, count, token):
         if dictionary["media_type"] == "image":
             img_url = dictionary["url"]
             save_img(img_url,
-                     f"{img_dir}/nasa_apod_{dictionary_number}{get_img_extension(img_url)}")
+                     f"{path_to_img}/nasa_apod_{dictionary_number}{get_img_extension(img_url)}")
 
 
 def get_arguments():
@@ -31,6 +31,6 @@ def get_arguments():
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("NASA_TOKEN")
-    img_dir = os.getcwd() + "/Images"
+    path_to_img = os.getcwd() + "/Images"
     args = get_arguments()
-    fetch_nasa_apod_images(img_dir, args.count, token)
+    fetch_nasa_apod_images(path_to_img, args.count, token)

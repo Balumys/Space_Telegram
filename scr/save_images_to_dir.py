@@ -8,8 +8,8 @@ def get_img_extension(url):
     return img_extension
 
 
-def save_img(url, img_dir):
+def save_img(url, path_to_img):
     response = requests.get(url)
     response.raise_for_status()
-    with open(img_dir, "wb") as image:
+    with open(path_to_img, "wb") as image:
         image.write(response.content)
