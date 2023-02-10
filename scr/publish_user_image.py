@@ -17,6 +17,6 @@ def get_arguments():
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("TELEGRAM_TOKEN")
-    tg_channel = "@spacechannel1906"
+    tg_channel = os.getenv("TELEGRAM_CHANNEL")
     args = get_arguments()
     publish_user_image_to_channel(tg_channel, args.img_path, token)

@@ -18,8 +18,8 @@ def get_arguments():
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("TELEGRAM_TOKEN")
-    tg_channel = "@spacechannel1906"
-    path_to_img = os.getcwd() + "/Images"
+    tg_channel = os.getenv("TELEGRAM_CHANNEL")
+    path_to_img = f"{os.getcwd()}/Images"
     img_list = os.listdir(path_to_img)
     args = get_arguments()
     while True:
