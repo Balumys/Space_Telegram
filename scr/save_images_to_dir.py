@@ -4,8 +4,7 @@ from urllib import parse
 
 
 def create_img_dir(img_dir):
-    if not os.path.isdir(img_dir):
-        os.mkdir(img_dir)
+    os.makedirs(img_dir, exist_ok=True)
 
 
 def get_img_extension(url):
