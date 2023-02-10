@@ -12,12 +12,12 @@ def fetch_nasa_epic_images(path_to_img, token):
     payload = {"api_key": token}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    for dictionary_number, dictionary in enumerate(response.json()):
-        img_name = dictionary["image"] + ".png"
-        date = datetime.strptime(dictionary["date"], "%Y-%m-%d %H:%M:%S").date()
+    for json_number, json in enumerate(response.json()):
+        img_name = json["image"] + ".png"
+        date = datetime.strptime(json["date"], "%Y-%m-%d %H:%M:%S").date()
         formatted_date = date.strftime("%Y/%m/%d")
         img_url = f"https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{img_name}?api_key={token}"
-        save_img(img_url, f"{path_to_img}/epic_{dictionary_number}.png")
+        save_img(img_url, f"{path_to_img}/epic_{json_number}.png")
 
 
 if __name__ == "__main__":

@@ -13,11 +13,11 @@ def fetch_nasa_apod_images(path_to_img, count, token):
                "count": count}
     response = requests.get(url, params=payload)
     response.raise_for_status()
-    for dictionary_number, dictionary in enumerate(response.json()):
-        if dictionary["media_type"] == "image":
-            img_url = dictionary["url"]
+    for json_number, json in enumerate(response.json()):
+        if json["media_type"] == "image":
+            img_url = json["url"]
             save_img(img_url,
-                     f"{path_to_img}/nasa_apod_{dictionary_number}{get_img_extension(img_url)}")
+                     f"{path_to_img}/nasa_apod_{json_number}{get_img_extension(img_url)}")
 
 
 def get_arguments():
