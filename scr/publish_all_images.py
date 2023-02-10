@@ -20,12 +20,12 @@ if __name__ == "__main__":
     token = os.getenv("TELEGRAM_TOKEN")
     tg_channel = os.getenv("TELEGRAM_CHANNEL")
     path_to_img = f"{os.getcwd()}/Images"
-    img_list = os.listdir(path_to_img)
+    image_names = os.listdir(path_to_img)
     args = get_arguments()
     while True:
-        for image_number, image in enumerate(img_list):
-            if image_number == len(img_list) - 1:
-                random.shuffle(img_list)
+        for image_number, image in enumerate(image_names):
+            if image_number == len(image_names) - 1:
+                random.shuffle(image_names)
                 break
             else:
                 publish_user_image_to_channel(tg_channel, f"{path_to_img}/{image}", token)
