@@ -31,6 +31,6 @@ def get_arguments():
 if __name__ == "__main__":
     load_dotenv()
     token = os.getenv("NASA_TOKEN")
-    path_to_img = os.getcwd() + "/Images"
+    path_to_img = f"{os.getcwd()}/Images"
     args = get_arguments()
     fetch_nasa_apod_images(path_to_img, args.count, token)

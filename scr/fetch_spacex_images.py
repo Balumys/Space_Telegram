@@ -25,6 +25,6 @@ def get_arguments():
 
 
 if __name__ == "__main__":
-    path_to_img = os.getcwd() + "/Images"
+    path_to_img = f"{os.getcwd()}/Images"
     args = get_arguments()
     fetch_spacex_last_launch(path_to_img, args.launch_id)
