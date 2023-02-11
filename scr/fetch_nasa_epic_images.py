@@ -13,7 +13,7 @@ def fetch_nasa_epic_images(path_to_img, token):
     response = requests.get(url, params=payload)
     response.raise_for_status()
     for json_number, json in enumerate(response.json()):
-        img_name = json["image"] + ".png"
+        img_name = f"{json['image']}.png"
         date = datetime.strptime(json["date"], "%Y-%m-%d %H:%M:%S").date()
         formatted_date = date.strftime("%Y/%m/%d")
         img_url = f"https://api.nasa.gov/EPIC/archive/natural/{formatted_date}/png/{img_name}?api_key={token}"
